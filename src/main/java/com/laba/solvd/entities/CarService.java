@@ -84,21 +84,31 @@ public class CarService implements SalaryCalculable {
             throw new NullPointerException("The departments map is null or empty.");
         }
 
-        int departmentIdToRemove = 0;
-        for (Map.Entry<Integer, Department> entry : departments.entrySet()) {
-            Department department = entry.getValue();
-            if (department != null && department.getName().equals(departmentName)) {
-                departmentIdToRemove = entry.getKey();
-                break;
+        int departmentIdToRemove = -1;
+        try {
+            for (Map.Entry<Integer, Department> entry : departments.entrySet()) {
+                Department department = entry.getValue();
+                if (department != null && department.getName().equals(departmentName)) {
+                    departmentIdToRemove = entry.getKey();
+                    break;
+                }
             }
-        }
 
-        if (departmentIdToRemove < 0) {
-            departments.remove(departmentIdToRemove);
-            logger.info("Department with name '{}' and ID '{}' removed successfully.", departmentName, departmentIdToRemove);
-        } else {
-            logger.warn("Department with name '{}' not found for removal.", departmentName);
-            throw new DepartmentException("Department with name '" + departmentName + "' not found.");
+            if (departmentIdToRemove >= 0) {
+                try {
+                    departments.remove(departmentIdToRemove);
+                    logger.info("Department with name '{}' and ID '{}' removed successfully.", departmentName, departmentIdToRemove);
+                } catch (Exception e) {
+                    logger.error("Failed to remove department with name '{}' and ID '{}'.", departmentName, departmentIdToRemove, e);
+                    throw new DepartmentException("Failed to remove department with name '" + departmentName + "'.", e);
+                }
+            } else {
+                logger.warn("Department with name '{}' not found for removal.", departmentName);
+                throw new DepartmentException("Department with name '" + departmentName + "' not found.");
+            }
+        } catch (Exception e) {
+            logger.error("An error occurred while attempting to remove department '{}': {}", departmentName, e.getMessage());
+            throw e;
         }
     }
 
