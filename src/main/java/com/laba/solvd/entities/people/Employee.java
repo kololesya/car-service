@@ -1,6 +1,6 @@
 package com.laba.solvd.entities.people;
 
-public abstract class Employee extends Person {
+public abstract class Employee extends Person implements SalaryCalculable{
     double baseSalary;
     private String specialty;
 
@@ -24,7 +24,9 @@ public abstract class Employee extends Person {
         this.baseSalary = salary;
     }
 
-    public abstract double calculateSalary();
+
+    @Override
+    public abstract double calculateTotalSalary();
 
     @Override
     public String toString() {

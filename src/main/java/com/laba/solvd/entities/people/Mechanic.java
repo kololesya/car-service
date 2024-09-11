@@ -24,7 +24,7 @@ public class Mechanic extends Employee {
     }
 
     @Override
-    public double calculateSalary() {
+    public double calculateTotalSalary() {
         double overtimePay = overtimeHours * overtimeRate;
         return baseSalary + overtimePay;
     }

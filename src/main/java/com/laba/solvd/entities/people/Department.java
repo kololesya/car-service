@@ -75,7 +75,7 @@ public class Department implements SalaryCalculable, Named {
     public double calculateTotalSalary() {
         double totalSalary = 0;
         for (Employee employee : employees) {
-            totalSalary += employee.calculateSalary();
+            totalSalary += employee.calculateTotalSalary();
         }
         logger.info("Total salary for department '{}' calculated: ${}.", departmentName, totalSalary);
         return totalSalary;
