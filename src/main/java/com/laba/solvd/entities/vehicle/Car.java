@@ -10,6 +10,8 @@ import java.util.Objects;
 
 import static com.laba.solvd.entities.Utils.isValidDate;
 
+//import static com.laba.solvd.entities.Utils.isValidDate;
+
 public class Car extends Vehicle implements Inspectable, Repairable, Paintable {
     private static final Logger logger = LoggerFactory.getLogger(Car.class);
     private String vinNumber;
