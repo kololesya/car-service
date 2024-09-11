@@ -1,0 +1,355 @@
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.Main - Starting Car Service application.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.CarService - Welcome to the Car Service System
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.CarService - CarService initialized with 0 departments.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.vehicle.Car - Car created: Corolla, VIN: VIN12345
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.vehicle.Car - Car created: Civic, VIN: VIN54321
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.Utils - Calculated age for car with VIN VIN54321 is 6 years
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.Main - Car Civic age: 6
+2024-09-11 12:43:42 [main] INFO  c.l.solvd.entities.people.Department - Department 'Repair and Inspection' created.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 12:43:42 [main] ERROR com.laba.solvd.entities.Utils - Error removing element from set: The element to remove is not found in the set.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.Utils - Attempted to remove an element from the set.
+2024-09-11 12:43:42 [main] INFO  c.l.solvd.entities.people.Department - Employees list updated for department 'Repair and Inspection'.
+2024-09-11 12:43:42 [main] INFO  c.l.solvd.entities.people.Department - Service costs updated for department 'Repair and Inspection'.
+2024-09-11 12:43:42 [main] INFO  c.l.solvd.entities.people.Department - Department 'Tire department' created.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Repair and Inspection' added successfully.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Tire department' added successfully.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.Utils - Attempted to remove an element from the set.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Repair and Inspection' removed successfully.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.Utils - Entity found: Department: Tire department, employees: [Employee by name: Anna Szultz has salary: 1100.0, hire date: 2021-12-05, Employee by name: Adam Mickiewicz has salary: 1600.0, specialty: Engine Specialist, hire date: 2020-01-15], serviceCosts: []
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.Utils - Entity found: Employee by name: Adam Mickiewicz has salary: 1600.0, specialty: Engine Specialist, hire date: 2020-01-15
+2024-09-11 12:43:42 [main] INFO  c.l.solvd.entities.people.Department - Total salary for department 'Tire department' calculated: $3100.0.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.order.Order - Order validation successful for OrderId: ORD001
+2024-09-11 12:43:42 [main] INFO  c.l.solvd.entities.people.Department - Service created with name: Whole inspection, Date: 2024-09-11, Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is true
+2024-09-11 12:43:42 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with BaseCost: 60.0
+2024-09-11 12:43:42 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with Order: OrderId ORD001, customer: Customer: by name John Doe with phone number=555123478, orderDate: 2024-09-11, orderItems: com.laba.solvd.entities.CustomLinkedList@436a4e4b, vehicle: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is true
+2024-09-11 12:43:42 [main] INFO  c.l.s.e.s.InspectionServiceCost - InspectionServiceCost created with Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is true, AgeOfCar: 9, BaseCost: 60.0
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.vehicle.Car - The car is undergoing technical inspection.
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.vehicle.Car - Diagnostics of faults is carried out.
+2024-09-11 12:43:42 [main] INFO  c.l.s.e.s.InspectionServiceCost - Calculated cost for Car (Age: 9): 66.0
+2024-09-11 12:43:42 [main] INFO  c.l.s.e.s.InspectionServiceCost - Inspection Service for Toyota Corolla VIN12345 is completed. The cost is: 66.0
+2024-09-11 12:43:42 [main] INFO  c.l.s.e.s.InspectionServiceCost - Calculated cost for Car (Age: 9): 66.0
+2024-09-11 12:43:42 [main] INFO  c.l.solvd.entities.people.Department - Service created with name: 1, Date: 2024-09-11, Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is true
+2024-09-11 12:43:42 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with BaseCost: 1000.0
+2024-09-11 12:43:42 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with Order: OrderId ORD001, customer: Customer: by name John Doe with phone number=555123478, orderDate: 2024-09-11, orderItems: com.laba.solvd.entities.CustomLinkedList@436a4e4b, vehicle: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is true
+2024-09-11 12:43:42 [main] INFO  c.l.s.e.s.InspectionServiceCost - InspectionServiceCost created with Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is true, AgeOfCar: 9, BaseCost: 1000.0
+2024-09-11 12:43:42 [main] INFO  c.l.solvd.entities.people.Department - Service created with name: 2, Date: 2024-09-11, Car: A vehicle is made by Honda, model is Civic, vinNumber is VIN54321, service date is true
+2024-09-11 12:43:42 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with BaseCost: 1200.0
+2024-09-11 12:43:42 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with Order: OrderId ORD001, customer: Customer: by name John Doe with phone number=555123478, orderDate: 2024-09-11, orderItems: com.laba.solvd.entities.CustomLinkedList@436a4e4b, vehicle: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is true
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.entities.order.Order - Total items cost calculated: 600.0
+2024-09-11 12:43:42 [main] INFO  c.l.s.e.service.RepairServiceCost - RepairServiceCost created with PartsCost: 600.0, LaborHours: 10.0, LaborRate: 50.0
+2024-09-11 12:43:42 [main] INFO  c.l.solvd.entities.people.Department - Service costs updated for department 'Repair and Inspection'.
+2024-09-11 12:43:42 [main] INFO  c.l.s.e.service.RepairServiceCost - Calculated total cost: 2300.0
+2024-09-11 12:43:42 [main] INFO  c.l.s.e.s.InspectionServiceCost - Calculated cost for Car (Age: 9): 1100.0
+2024-09-11 12:43:42 [main] INFO  com.laba.solvd.Main - Application finished.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.Main - Starting Car Service application.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.CarService - Welcome to the Car Service System
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.CarService - CarService initialized with 0 departments.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.vehicle.Car - Car created: Corolla, VIN: VIN12345
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.vehicle.Car - Car created: Civic, VIN: VIN54321
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.Utils - Calculated age for car with VIN VIN54321 is 6 years
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.Main - Car Civic age: 6
+2024-09-11 14:05:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Warehouse initialized.
+2024-09-11 14:05:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 10 units of Brake Pads to the warehouse.
+2024-09-11 14:05:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 5 units of Oil Filter to the warehouse.
+2024-09-11 14:05:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 3 units of Engine Belt to the warehouse.
+2024-09-11 14:05:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Current warehouse inventory:
+2024-09-11 14:05:11 [main] INFO  c.l.solvd.entities.people.Department - Department 'Repair and Inspection' created.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:05:11 [main] ERROR com.laba.solvd.entities.Utils - Error removing element from set: The element to remove is not found in the set.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to remove an element from the set.
+2024-09-11 14:05:11 [main] INFO  c.l.solvd.entities.people.Department - Employees list updated for department 'Repair and Inspection'.
+2024-09-11 14:05:11 [main] INFO  c.l.solvd.entities.people.Department - Service costs updated for department 'Repair and Inspection'.
+2024-09-11 14:05:11 [main] INFO  c.l.solvd.entities.people.Department - Department 'Tire department' created.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Repair and Inspection' added successfully.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Tire department' added successfully.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to remove an element from the set.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Repair and Inspection' removed successfully.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.Utils - Entity found: Department: Tire department, employees: [Employee by name: Anna Szultz has salary: 1100.0, hire date: 2021-12-05, Employee by name: Adam Mickiewicz has salary: 1600.0, specialty: Engine Specialist, hire date: 2020-01-15], serviceCosts: []
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.Utils - Entity found: Employee by name: Adam Mickiewicz has salary: 1600.0, specialty: Engine Specialist, hire date: 2020-01-15
+2024-09-11 14:05:11 [main] INFO  c.l.solvd.entities.people.Department - Total salary for department 'Tire department' calculated: $3100.0.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.order.Order - Order validation successful for OrderId: ORD001
+2024-09-11 14:05:11 [main] INFO  c.l.solvd.entities.people.Department - Service created with name: Whole inspection, Date: 2024-09-11, Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:05:11 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with BaseCost: 60.0
+2024-09-11 14:05:11 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with Order: OrderId ORD001, customer: Customer: by name John Doe with phone number=555123478, orderDate: 2024-09-11, orderItems: com.laba.solvd.entities.CustomLinkedList@161b062a, vehicle: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:05:11 [main] INFO  c.l.s.e.s.InspectionServiceCost - InspectionServiceCost created with Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21, AgeOfCar: 9, BaseCost: 60.0
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.vehicle.Car - The car is undergoing technical inspection.
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.vehicle.Car - Diagnostics of faults is carried out.
+2024-09-11 14:05:11 [main] INFO  c.l.s.e.s.InspectionServiceCost - Calculated cost for Car (Age: 9): 66.0
+2024-09-11 14:05:11 [main] INFO  c.l.s.e.s.InspectionServiceCost - Inspection Service for Toyota Corolla VIN12345 is completed. The cost is: 66.0
+2024-09-11 14:05:11 [main] INFO  c.l.s.e.s.InspectionServiceCost - Calculated cost for Car (Age: 9): 66.0
+2024-09-11 14:05:11 [main] INFO  c.l.solvd.entities.people.Department - Service created with name: 1, Date: 2024-09-11, Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:05:11 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with BaseCost: 1000.0
+2024-09-11 14:05:11 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with Order: OrderId ORD001, customer: Customer: by name John Doe with phone number=555123478, orderDate: 2024-09-11, orderItems: com.laba.solvd.entities.CustomLinkedList@161b062a, vehicle: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:05:11 [main] INFO  c.l.s.e.s.InspectionServiceCost - InspectionServiceCost created with Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21, AgeOfCar: 9, BaseCost: 1000.0
+2024-09-11 14:05:11 [main] INFO  c.l.solvd.entities.people.Department - Service created with name: 2, Date: 2024-09-11, Car: A vehicle is made by Honda, model is Civic, vinNumber is VIN54321, service date is 2024-06-21
+2024-09-11 14:05:11 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with BaseCost: 1200.0
+2024-09-11 14:05:11 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with Order: OrderId ORD001, customer: Customer: by name John Doe with phone number=555123478, orderDate: 2024-09-11, orderItems: com.laba.solvd.entities.CustomLinkedList@161b062a, vehicle: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.entities.order.Order - Total items cost calculated: 600.0
+2024-09-11 14:05:11 [main] INFO  c.l.s.e.service.RepairServiceCost - RepairServiceCost created with PartsCost: 600.0, LaborHours: 10.0, LaborRate: 50.0
+2024-09-11 14:05:11 [main] INFO  c.l.solvd.entities.people.Department - Service costs updated for department 'Repair and Inspection'.
+2024-09-11 14:05:11 [main] INFO  c.l.s.e.s.InspectionServiceCost - Calculated cost for Car (Age: 9): 1100.0
+2024-09-11 14:05:11 [main] INFO  c.l.s.e.service.RepairServiceCost - Calculated total cost: 2300.0
+2024-09-11 14:05:11 [main] INFO  com.laba.solvd.Main - Application finished.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.Main - Starting Car Service application.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.CarService - Welcome to the Car Service System
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.CarService - CarService initialized with 0 departments.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.vehicle.Car - Car created: Corolla, VIN: VIN12345
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.vehicle.Car - Car created: Civic, VIN: VIN54321
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.Utils - Calculated age for car with VIN VIN54321 is 6 years
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.Main - Car Civic age: 6
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Warehouse initialized.
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 10 units of Brake Pads to the warehouse.
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 5 units of Oil Filter to the warehouse.
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 3 units of Engine Belt to the warehouse.
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Current warehouse inventory:
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.people.Department - Department 'Repair and Inspection' created.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:12:14 [main] ERROR com.laba.solvd.entities.Utils - Error removing element from set: The element to remove is not found in the set.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.Utils - Attempted to remove an element from the set.
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.people.Department - Employees list updated for department 'Repair and Inspection'.
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.people.Department - Service costs updated for department 'Repair and Inspection'.
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.people.Department - Department 'Tire department' created.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Repair and Inspection' added successfully.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Tire department' added successfully.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.Utils - Attempted to remove an element from the set.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Repair and Inspection' removed successfully.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.Utils - Entity found: Department: Tire department, employees: [Employee by name: Anna Szultz has salary: 1100.0, hire date: 2021-12-05, Employee by name: Adam Mickiewicz has salary: 1600.0, specialty: Engine Specialist, hire date: 2020-01-15], serviceCosts: []
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.Utils - Entity found: Employee by name: Adam Mickiewicz has salary: 1600.0, specialty: Engine Specialist, hire date: 2020-01-15
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.people.Department - Total salary for department 'Tire department' calculated: $3100.0.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.entities.order.Order - Order validation successful for OrderId: ORD001
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Processing order ID: ORD001 for customer: John Doe
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Checking availability for part 'Oil Filter': Available: 5, Required: 2
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Checking availability for part 'Oil Filter': Available: 5, Required: 2
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Issued 2 units of Oil Filter for repair. Remaining in warehouse: 3
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 2 units of 'Oil Filter' from order. Remaining inventory: 3
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Checking availability for part 'Brake Pads': Available: 10, Required: 1
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Checking availability for part 'Brake Pads': Available: 10, Required: 1
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Issued 1 units of Brake Pads for repair. Remaining in warehouse: 9
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 1 units of 'Brake Pads' from order. Remaining inventory: 9
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Checking availability for part 'Engine Belt': Available: 3, Required: 1
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Checking availability for part 'Engine Belt': Available: 3, Required: 1
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Issued 1 units of Engine Belt for repair. Remaining in warehouse: 2
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 1 units of 'Engine Belt' from order. Remaining inventory: 2
+2024-09-11 14:12:14 [main] INFO  c.l.solvd.entities.order.Warehouse - Order ID: ORD001 processed successfully.
+2024-09-11 14:12:14 [main] INFO  com.laba.solvd.Main - Application finished.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.Main - Starting Car Service application.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.CarService - Welcome to the Car Service System
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.CarService - CarService initialized with 0 departments.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.vehicle.Car - Car created: Corolla, VIN: VIN12345
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.vehicle.Car - Car created: Civic, VIN: VIN54321
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.Utils - Calculated age for car with VIN VIN54321 is 6 years
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.Main - Car Civic age: 6
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Warehouse initialized.
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 10 units of Brake Pads to the warehouse.
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 5 units of Oil Filter to the warehouse.
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 3 units of Engine Belt to the warehouse.
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Current warehouse inventory:
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.people.Department - Department 'Repair and Inspection' created.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:13:43 [main] ERROR com.laba.solvd.entities.Utils - Error removing element from set: The element to remove is not found in the set.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.Utils - Attempted to remove an element from the set.
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.people.Department - Employees list updated for department 'Repair and Inspection'.
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.people.Department - Service costs updated for department 'Repair and Inspection'.
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.people.Department - Department 'Tire department' created.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Repair and Inspection' added successfully.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Tire department' added successfully.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.Utils - Attempted to remove an element from the set.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Repair and Inspection' removed successfully.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.Utils - Entity found: Department: Tire department, employees: [Employee by name: Anna Szultz has salary: 1100.0, hire date: 2021-12-05, Employee by name: Adam Mickiewicz has salary: 1600.0, specialty: Engine Specialist, hire date: 2020-01-15], serviceCosts: []
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.Utils - Entity found: Employee by name: Adam Mickiewicz has salary: 1600.0, specialty: Engine Specialist, hire date: 2020-01-15
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.people.Department - Total salary for department 'Tire department' calculated: $3100.0.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.entities.order.Order - Order validation successful for OrderId: ORD001
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Processing order ID: ORD001 for customer: John Doe
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Checking availability for part 'Oil Filter': Available: 5, Required: 2
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Checking availability for part 'Oil Filter': Available: 5, Required: 2
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 2 units of 'Oil Filter' from order. Remaining inventory: 3
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Checking availability for part 'Brake Pads': Available: 10, Required: 1
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Checking availability for part 'Brake Pads': Available: 10, Required: 1
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 1 units of 'Brake Pads' from order. Remaining inventory: 9
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Checking availability for part 'Engine Belt': Available: 3, Required: 1
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Checking availability for part 'Engine Belt': Available: 3, Required: 1
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 1 units of 'Engine Belt' from order. Remaining inventory: 2
+2024-09-11 14:13:43 [main] INFO  c.l.solvd.entities.order.Warehouse - Order ID: ORD001 processed successfully.
+2024-09-11 14:13:43 [main] INFO  com.laba.solvd.Main - Application finished.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.Main - Starting Car Service application.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.CarService - Welcome to the Car Service System
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.CarService - CarService initialized with 0 departments.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.vehicle.Car - Car created: Corolla, VIN: VIN12345
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.vehicle.Car - Car created: Civic, VIN: VIN54321
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.Utils - Calculated age for car with VIN VIN54321 is 6 years
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.Main - Car Civic age: 6
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Warehouse initialized.
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 10 units of Brake Pads to the warehouse.
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 5 units of Oil Filter to the warehouse.
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 3 units of Engine Belt to the warehouse.
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Current warehouse inventory:
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.people.Department - Department 'Repair and Inspection' created.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:14:11 [main] ERROR com.laba.solvd.entities.Utils - Error removing element from set: The element to remove is not found in the set.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to remove an element from the set.
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.people.Department - Employees list updated for department 'Repair and Inspection'.
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.people.Department - Service costs updated for department 'Repair and Inspection'.
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.people.Department - Department 'Tire department' created.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Repair and Inspection' added successfully.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Tire department' added successfully.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.Utils - Attempted to remove an element from the set.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Repair and Inspection' removed successfully.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.Utils - Entity found: Department: Tire department, employees: [Employee by name: Anna Szultz has salary: 1100.0, hire date: 2021-12-05, Employee by name: Adam Mickiewicz has salary: 1600.0, specialty: Engine Specialist, hire date: 2020-01-15], serviceCosts: []
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.Utils - Entity found: Employee by name: Adam Mickiewicz has salary: 1600.0, specialty: Engine Specialist, hire date: 2020-01-15
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.people.Department - Total salary for department 'Tire department' calculated: $3100.0.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.entities.order.Order - Order validation successful for OrderId: ORD001
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Processing order ID: ORD001 for customer: John Doe
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 2 units of 'Oil Filter' from order. Remaining inventory: 3
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 1 units of 'Brake Pads' from order. Remaining inventory: 9
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 1 units of 'Engine Belt' from order. Remaining inventory: 2
+2024-09-11 14:14:11 [main] INFO  c.l.solvd.entities.order.Warehouse - Order ID: ORD001 processed successfully.
+2024-09-11 14:14:11 [main] INFO  com.laba.solvd.Main - Application finished.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.Main - Starting Car Service application.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.CarService - Welcome to the Car Service System
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.CarService - CarService initialized with 0 departments.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.vehicle.Car - Car created: Corolla, VIN: VIN12345
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.vehicle.Car - Car created: Civic, VIN: VIN54321
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.Utils - Calculated age for car with VIN VIN54321 is 6 years
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.Main - Car Civic age: 6
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.order.Warehouse - Warehouse initialized.
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 10 units of Brake Pads to the warehouse.
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 5 units of Oil Filter to the warehouse.
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 3 units of Engine Belt to the warehouse.
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.order.Warehouse - Current warehouse inventory:
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.people.Department - Department 'Repair and Inspection' created.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:22:22 [main] ERROR com.laba.solvd.entities.Utils - Error removing element from set: The element to remove is not found in the set.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.Utils - Attempted to remove an element from the set.
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.people.Department - Employees list updated for department 'Repair and Inspection'.
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.people.Department - Service costs updated for department 'Repair and Inspection'.
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.people.Department - Department 'Tire department' created.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Repair and Inspection' added successfully.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Tire department' added successfully.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.Utils - Attempted to remove an element from the set.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Repair and Inspection' removed successfully.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.Utils - Entity found: Department: Tire department, employees: [Employee by name: Anna Szultz has salary: 1100.0, hire date: 2021-12-05, Employee by name: Adam Mickiewicz has salary: 1600.0, specialty: Engine Specialist, hire date: 2020-01-15], serviceCosts: []
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.Utils - Entity found: Employee by name: Adam Mickiewicz has salary: 1600.0, specialty: Engine Specialist, hire date: 2020-01-15
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.people.Department - Total salary for department 'Tire department' calculated: $3100.0.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.order.Order - Order validation successful for OrderId: ORD001
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.order.Warehouse - Processing order ID: ORD001 for customer: John Doe
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 2 units of 'Oil Filter' from order. Remaining inventory: 3
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 1 units of 'Brake Pads' from order. Remaining inventory: 9
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 1 units of 'Engine Belt' from order. Remaining inventory: 2
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.order.Warehouse - Order ID: ORD001 processed successfully.
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.people.Department - Service created with name: Whole inspection, Date: 2024-09-11, Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:22:22 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with BaseCost: 60.0
+2024-09-11 14:22:22 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with Order: OrderId ORD001, customer: Customer: by name John Doe with phone number=555123478, orderDate: 2024-09-11, orderItems: com.laba.solvd.entities.CustomLinkedList@14ec4505, vehicle: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:22:22 [main] INFO  c.l.s.e.s.InspectionServiceCost - InspectionServiceCost created with Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21, AgeOfCar: 9, BaseCost: 60.0
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.vehicle.Car - The car is undergoing technical inspection.
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.vehicle.Car - Diagnostics of faults is carried out.
+2024-09-11 14:22:22 [main] INFO  c.l.s.e.s.InspectionServiceCost - Calculated cost for Car (Age: 9): 66.0
+2024-09-11 14:22:22 [main] INFO  c.l.s.e.s.InspectionServiceCost - Inspection Service for Toyota Corolla VIN12345 is completed. The cost is: 66.0
+2024-09-11 14:22:22 [main] INFO  c.l.s.e.s.InspectionServiceCost - Calculated cost for Car (Age: 9): 66.0
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.people.Department - Service created with name: 1, Date: 2024-09-11, Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:22:22 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with BaseCost: 1000.0
+2024-09-11 14:22:22 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with Order: OrderId ORD001, customer: Customer: by name John Doe with phone number=555123478, orderDate: 2024-09-11, orderItems: com.laba.solvd.entities.CustomLinkedList@14ec4505, vehicle: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:22:22 [main] INFO  c.l.s.e.s.InspectionServiceCost - InspectionServiceCost created with Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21, AgeOfCar: 9, BaseCost: 1000.0
+2024-09-11 14:22:22 [main] INFO  c.l.solvd.entities.people.Department - Service created with name: 2, Date: 2024-09-11, Car: A vehicle is made by Honda, model is Civic, vinNumber is VIN54321, service date is 2024-06-21
+2024-09-11 14:22:22 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with BaseCost: 1200.0
+2024-09-11 14:22:22 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with Order: OrderId ORD001, customer: Customer: by name John Doe with phone number=555123478, orderDate: 2024-09-11, orderItems: com.laba.solvd.entities.CustomLinkedList@14ec4505, vehicle: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.entities.order.Order - Total items cost calculated: 600.0
+2024-09-11 14:22:22 [main] INFO  c.l.s.e.service.RepairServiceCost - RepairServiceCost created with PartsCost: 600.0, LaborHours: 10.0, LaborRate: 50.0
+2024-09-11 14:22:22 [main] INFO  c.l.s.e.service.RepairServiceCost - Calculated total cost: 2300.0
+2024-09-11 14:22:22 [main] INFO  c.l.s.e.s.InspectionServiceCost - Calculated cost for Car (Age: 9): 1100.0
+2024-09-11 14:22:22 [main] INFO  com.laba.solvd.Main - Application finished.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.Main - Starting Car Service application.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.CarService - Welcome to the Car Service System
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.CarService - CarService initialized with 0 departments.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.vehicle.Car - Car created: Corolla, VIN: VIN12345
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.vehicle.Car - Car created: Civic, VIN: VIN54321
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.Utils - Calculated age for car with VIN VIN54321 is 6 years
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.Main - Car Civic age: 6
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.order.Warehouse - Warehouse initialized.
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 10 units of Brake Pads to the warehouse.
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 5 units of Oil Filter to the warehouse.
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.order.Warehouse - Added 3 units of Engine Belt to the warehouse.
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.order.Warehouse - Current warehouse inventory:
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.people.Department - Department 'Repair and Inspection' created.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:23:27 [main] ERROR com.laba.solvd.entities.Utils - Error removing element from set: The element to remove is not found in the set.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.Utils - Attempted to remove an element from the set.
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.people.Department - Employees list updated for department 'Repair and Inspection'.
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.people.Department - Service costs updated for department 'Repair and Inspection'.
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.people.Department - Department 'Tire department' created.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Repair and Inspection' added successfully.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.Utils - Attempted to add a new element.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Tire department' added successfully.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.Utils - Attempted to remove an element from the set.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.CarService - Department with name 'Repair and Inspection' removed successfully.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.Utils - Entity found: Department: Tire department, employees: [Employee by name: Anna Szultz has salary: 1100.0, hire date: 2021-12-05, Employee by name: Adam Mickiewicz has salary: 1600.0, specialty: Engine Specialist, hire date: 2020-01-15], serviceCosts: []
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.Utils - Entity found: Employee by name: Adam Mickiewicz has salary: 1600.0, specialty: Engine Specialist, hire date: 2020-01-15
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.people.Department - Total salary for department 'Tire department' calculated: $3100.0.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.order.Order - Order validation successful for OrderId: ORD001
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.order.Warehouse - Processing order ID: ORD001 for customer: John Doe
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 2 units of 'Oil Filter' from order. Remaining inventory: 3
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 1 units of 'Brake Pads' from order. Remaining inventory: 9
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.order.Warehouse - Processed 1 units of 'Engine Belt' from order. Remaining inventory: 2
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.order.Warehouse - Order ID: ORD001 processed successfully.
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.people.Department - Service created with name: Whole inspection, Date: 2024-09-11, Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:23:27 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with BaseCost: 60.0
+2024-09-11 14:23:27 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with Order: OrderId ORD001, customer: Customer: by name John Doe with phone number=555123478, orderDate: 2024-09-11, orderItems: com.laba.solvd.entities.CustomLinkedList@14ec4505, vehicle: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:23:27 [main] INFO  c.l.s.e.s.InspectionServiceCost - InspectionServiceCost created with Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21, AgeOfCar: 9, BaseCost: 60.0
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.vehicle.Car - The car is undergoing technical inspection.
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.vehicle.Car - Diagnostics of faults is carried out.
+2024-09-11 14:23:27 [main] INFO  c.l.s.e.s.InspectionServiceCost - Calculated cost for Car (Age: 9): 66.0
+2024-09-11 14:23:27 [main] INFO  c.l.s.e.s.InspectionServiceCost - Inspection Service for Toyota Corolla VIN12345 is completed. The cost is: 66.0
+2024-09-11 14:23:27 [main] INFO  c.l.s.e.s.InspectionServiceCost - Calculated cost for Car (Age: 9): 66.0
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.people.Department - Service created with name: 1, Date: 2024-09-11, Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:23:27 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with BaseCost: 1000.0
+2024-09-11 14:23:27 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with Order: OrderId ORD001, customer: Customer: by name John Doe with phone number=555123478, orderDate: 2024-09-11, orderItems: com.laba.solvd.entities.CustomLinkedList@14ec4505, vehicle: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:23:27 [main] INFO  c.l.s.e.s.InspectionServiceCost - InspectionServiceCost created with Car: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21, AgeOfCar: 9, BaseCost: 1000.0
+2024-09-11 14:23:27 [main] INFO  c.l.solvd.entities.people.Department - Service created with name: 2, Date: 2024-09-11, Car: A vehicle is made by Honda, model is Civic, vinNumber is VIN54321, service date is 2024-06-21
+2024-09-11 14:23:27 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with BaseCost: 1200.0
+2024-09-11 14:23:27 [main] INFO  c.l.s.entities.service.ServiceCost - ServiceCost created with Order: OrderId ORD001, customer: Customer: by name John Doe with phone number=555123478, orderDate: 2024-09-11, orderItems: com.laba.solvd.entities.CustomLinkedList@14ec4505, vehicle: A vehicle is made by Toyota, model is Corolla, vinNumber is VIN12345, service date is 2024-08-21
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.entities.order.Order - Total items cost calculated: 600.0
+2024-09-11 14:23:27 [main] INFO  c.l.s.e.service.RepairServiceCost - RepairServiceCost created with PartsCost: 600.0, LaborHours: 10.0, LaborRate: 50.0
+2024-09-11 14:23:27 [main] INFO  c.l.s.e.service.RepairServiceCost - Calculated total cost: 2300.0
+2024-09-11 14:23:27 [main] INFO  c.l.s.e.s.InspectionServiceCost - Calculated cost for Car (Age: 9): 1100.0
+2024-09-11 14:23:27 [main] INFO  com.laba.solvd.Main - Application finished.
