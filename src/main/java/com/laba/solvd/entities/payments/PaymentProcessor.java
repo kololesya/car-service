@@ -1,5 +1,6 @@
 package com.laba.solvd.entities.payments;
 
+import com.laba.solvd.entities.exceptions.PaymentProcessingException;
 import com.laba.solvd.entities.people.Department;
 import com.laba.solvd.entities.service.ServiceCost;
 import org.slf4j.Logger;
@@ -23,43 +24,35 @@ public class PaymentProcessor implements PaymentProcessing{
 
     @Override
     public void processPayment() {
-        if (this.serviceCost == null) {
-            logger.error("Cannot process payment: Service cost is null.");
-            return;
+        try {
+            if (this.serviceCost == null) {
+                throw new PaymentProcessingException("Cannot process payment: Service cost is null.");
+            }
+
+            double totalAmount = this.serviceCost.calculateCost();
+            String orderId = this.serviceCost.getOrder().getOrderId();;
+
+            logger.info("Processing payment for " + orderId + " | Total Amount: $" + totalAmount);
+            logger.info("Payment of $" + totalAmount + " has been successfully processed for: " + orderId);
+        } catch (PaymentProcessingException e) {
+            logger.error("Payment processing failed: " + e.getMessage(), e);
         }
-
-        double totalAmount = this.serviceCost.calculateCost();
-        String orderId = generateOrderId();
-
-        logger.info("Processing payment for" + orderId + " | Total Amount: $" + totalAmount);
-        logger.info("Payment of $" + totalAmount + " has been successfully processed for: " + orderId);
     }
 
     @Override
     public void processRefund() {
-        if (this.serviceCost == null) {
-            logger.error("Cannot process refund: Service cost is null.");
-            return;
+        try {
+            if (this.serviceCost == null) {
+                throw new PaymentProcessingException("Cannot process refund: Service cost is null.");
+            }
+
+            double totalAmount = this.serviceCost.calculateCost();
+            String orderId = this.serviceCost.getOrder().getOrderId();
+
+            logger.info("Processing refund for Order ID: " + orderId + " | Total Amount: $" + totalAmount);
+            logger.info("Refund of $" + totalAmount + " has been successfully processed for Order ID: " + orderId);
+        } catch (PaymentProcessingException e) {
+            logger.error("Refund processing failed: " + e.getMessage(), e);
         }
-
-        double totalAmount = this.serviceCost.calculateCost();
-        String orderId = generateOrderId();
-
-        logger.info("Processing refund for Order ID: " + orderId + " | Total Amount: $" + totalAmount);
-        logger.info("Refund of $" + totalAmount + " has been successfully processed for Order ID: " + orderId);
-    }
-
-    private String generateOrderId() {
-        if (serviceCost == null || serviceCost.getCar() == null || serviceCost.getServiceName() == null) {
-            logger.warn("Unable to generate Order ID: Missing service cost, car, or service name.");
-            return "Unknown";
-        }
-
-        StringBuilder orderIdBuilder = new StringBuilder();
-        orderIdBuilder.append(serviceCost.getServiceName());
-        orderIdBuilder.append(" for the car with ");
-        orderIdBuilder.append(serviceCost.getCar().getVinNumber());
-
-        return orderIdBuilder.toString();
     }
 }
