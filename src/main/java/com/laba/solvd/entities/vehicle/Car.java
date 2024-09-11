@@ -20,15 +20,10 @@ public class Car extends Vehicle implements Inspectable, Repairable, Paintable {
 
     public Car(String producent, String model, String vinNumber, String serviceDate, int manufacturingYear) {
         super(producent, model);
-        try {
-            this.vinNumber = vinNumber;
-            this.serviceDate = String.valueOf(isValidDate(serviceDate));
-            this.manufacturingYear = manufacturingYear;
-            logger.info("Car created: {}, VIN: {}", model, vinNumber);
-        } catch (IllegalArgumentException e) {
-            logger.error("Error creating car: {}", e.getMessage());
-            throw new InvalidDataException("Invalid service date: " + serviceDate, e);
-        }
+        this.vinNumber = vinNumber;
+        this.serviceDate = serviceDate;
+        this.manufacturingYear = manufacturingYear;
+        logger.info("Car created: {}, VIN: {}", model, vinNumber);
     }
 
     public String getVinNumber() {

@@ -1,6 +1,6 @@
 package com.laba.solvd.entities.service;
 
-import com.laba.solvd.entities.exceptions.InvalidCarException;
+import com.laba.solvd.entities.exceptions.InvalidDataException;
 import com.laba.solvd.entities.order.Order;
 import com.laba.solvd.entities.vehicle.Car;
 import org.slf4j.Logger;
@@ -18,7 +18,7 @@ public class InspectionServiceCost extends ServiceCost{
 
         if (car == null) {
             logger.error("Invalid car: {}", car);
-            throw new InvalidCarException("Car cannot be null.");
+            throw new InvalidDataException("Car cannot be null.");
         }
         if (baseCost < 0) {
             logger.error("Invalid baseCost: {}", baseCost);
@@ -49,7 +49,7 @@ public class InspectionServiceCost extends ServiceCost{
     public void performInspection(Car car) {
         if (car == null) {
             logger.error("Car for inspection is null.");
-            throw new InvalidCarException("Car cannot be null.");
+            throw new InvalidDataException("Car cannot be null.");
         }
 
         try {

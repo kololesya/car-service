@@ -1,7 +1,7 @@
 package com.laba.solvd.entities.order;
 
 import com.laba.solvd.entities.CustomLinkedList;
-import com.laba.solvd.entities.exceptions.InvalidOrderException;
+import com.laba.solvd.entities.exceptions.InvalidDataException;
 import com.laba.solvd.entities.people.Customer;
 import com.laba.solvd.entities.vehicle.Vehicle;
 import org.slf4j.Logger;
@@ -30,7 +30,7 @@ public class Order {
     private void validateOrder() {
         if (!isValidOrder(this)) {
             logger.error("Order validation failed for OrderId: {}", orderId);
-            throw new InvalidOrderException("Invalid order details: " + this);
+            throw new InvalidDataException("Invalid order details: " + this);
         }
         logger.info("Order validation successful for OrderId: {}", orderId);
     }

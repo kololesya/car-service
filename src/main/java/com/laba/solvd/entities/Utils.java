@@ -2,7 +2,6 @@ package com.laba.solvd.entities;
 
 import com.laba.solvd.entities.exceptions.CarServiceException;
 import com.laba.solvd.entities.exceptions.InvalidDataException;
-import com.laba.solvd.entities.exceptions.InvalidElementException;
 import com.laba.solvd.entities.exceptions.NullEntitySetException;
 import com.laba.solvd.entities.people.Department;
 import com.laba.solvd.entities.people.Employee;
@@ -69,7 +68,7 @@ public class Utils {
     public static <T> Set<T> addElementToSet(Set<T> set, T element) {
         try {
             if (element == null) {
-                throw new InvalidElementException("The element to add cannot be null.");
+                throw new InvalidDataException("The element to add cannot be null.");
             }
 
             if (element instanceof Employee) {
@@ -104,7 +103,7 @@ public class Utils {
             }
 
             if (element == null) {
-                throw new InvalidElementException("The element to remove cannot be null.");
+                throw new InvalidDataException("The element to remove cannot be null.");
             }
 
             if (element instanceof Employee) {
@@ -124,10 +123,10 @@ public class Utils {
             newSet.addAll(set);
 
             if (!newSet.remove(element)) {
-                throw new InvalidElementException("The element to remove is not found in the set.");
+                throw new InvalidDataException("The element to remove is not found in the set.");
             }
 
-        } catch (NullPointerException | InvalidElementException | CarServiceException e) {
+        } catch (NullPointerException | InvalidDataException | CarServiceException e) {
             logger.error("Error removing element from set: {}", e.getMessage());
             return set;
         } finally {

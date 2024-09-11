@@ -1,7 +1,7 @@
 package com.laba.solvd.entities;
 
 import com.laba.solvd.entities.exceptions.DepartmentException;
-import com.laba.solvd.entities.exceptions.InvalidServiceException;
+import com.laba.solvd.entities.exceptions.InvalidDataException;
 import com.laba.solvd.entities.people.Department;
 import com.laba.solvd.entities.people.Employee;
 import com.laba.solvd.entities.people.SalaryCalculable;
@@ -11,7 +11,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 import static com.laba.solvd.entities.Utils.addElementToSet;
@@ -85,7 +84,7 @@ public class CarService implements SalaryCalculable {
     public void removeDepartment(String departmentName) {
         if (departments == null || departments.isEmpty()) {
             logger.error("The departments set is null or empty.");
-            throw new InvalidServiceException("The departments set is null or empty.");
+            throw new InvalidDataException("The departments set is null or empty.");
         }
 
         Department departmentToRemove = null;
@@ -113,7 +112,7 @@ public class CarService implements SalaryCalculable {
     public void addDepartment(Department department) {
         if (department == null) {
             logger.error("Error: Department cannot be null.");
-            throw new InvalidServiceException("Department cannot be null.");
+            throw new InvalidDataException("Department cannot be null.");
         }
         departments = addElementToSet(departments, department);
         logger.info("Department with name '{}' added successfully.", department.getName());

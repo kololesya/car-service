@@ -4,8 +4,11 @@ import com.laba.solvd.entities.CarService;
 import com.laba.solvd.entities.exceptions.CarServiceException;
 import com.laba.solvd.entities.order.Order;
 import com.laba.solvd.entities.order.OrderItem;
+import com.laba.solvd.entities.order.Warehouse;
 import com.laba.solvd.entities.people.*;
 import com.laba.solvd.entities.service.InspectionServiceCost;
+import com.laba.solvd.entities.service.RepairServiceCost;
+import com.laba.solvd.entities.service.ServiceCost;
 import com.laba.solvd.entities.vehicle.Car;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,6 +28,7 @@ public class Main {
             Set<Employee> employees = new HashSet<>();
             Set<Employee> employees1 = new HashSet<>();
             Set<Department> departments = new HashSet<>();
+            Set<ServiceCost> serviceCosts = new HashSet<>();
             CarService carService = new CarService(departments);
 
             Car car1 = new Car("Toyota", "Corolla", "VIN12345", "2024-08-21", 2015);
@@ -38,11 +42,20 @@ public class Main {
             Manager manager2 = new Manager("Anna Szultz", "manager", 1100, 200, LocalDate.of(2021, 12, 05));
             Mechanic mechanic3 = new Mechanic(null, 0, 0, 0, null, null);
 
+            Warehouse warehouse = new Warehouse();
+
+            warehouse.addParts("Brake Pads", 10);
+            warehouse.addParts("Oil Filter", 5);
+            warehouse.addParts("Engine Belt", 3);
+
+            warehouse.printInventory();
+
             Department repairAndInspectionDepartment = new Department("Repair and Inspection", employees);
             repairAndInspectionDepartment.addEmployee(mechanic1);
             repairAndInspectionDepartment.addEmployee(mechanic2);
             repairAndInspectionDepartment.addEmployee(manager1);
             repairAndInspectionDepartment.removeEmployee(manager2);
+            repairAndInspectionDepartment.setServiceCosts(serviceCosts);
 
             Department tireDepartment = new Department("Tire department", employees1);
             tireDepartment.addEmployee(mechanic1);
@@ -60,17 +73,26 @@ public class Main {
             Customer customer = new Customer("John Doe", 555123478);
             Order order1 = new Order("ORD001", LocalDate.now(), customer, car1);
 
-            OrderItem item1 = new OrderItem("0001", "Oil Change", 150);
-            OrderItem item2 = new OrderItem("0002", "Oil Change", 150);
-            OrderItem item3 = new OrderItem("0003", "Disk replacement", 300);
+            OrderItem item1 = new OrderItem("0001", "Oil Filter", 150, 2);
+            OrderItem item2 = new OrderItem("0002", "Brake Pads", 150, 1);
+            OrderItem item3 = new OrderItem("0003", "Engine Belt", 300, 1);
 
             order1.addOrderItem(item1);
             order1.addOrderItem(item2);
             order1.addOrderItem(item3);
 
+            warehouse.processOrder(order1);
+
             InspectionServiceCost inspectionToyota = new InspectionServiceCost(car1, "Whole inspection", 60, order1.getOrderDate(), order1);
             inspectionToyota.performInspection(car1);
             double x = inspectionToyota.calculateCost();
+
+            ServiceCost serviceCost = new InspectionServiceCost(car1, "1", 1000, LocalDate.now(), order1);
+            ServiceCost serviceCost1 = new RepairServiceCost(car2, "2", 1200, LocalDate.now(), order1, 10, 50);
+            serviceCosts.add(serviceCost);
+            serviceCosts.add(serviceCost1);
+
+            System.out.println(repairAndInspectionDepartment.calculateTotalCost());
 
         } catch (CarServiceException e) {
             logger.error("CarServiceException occurred: {}", e.getMessage());

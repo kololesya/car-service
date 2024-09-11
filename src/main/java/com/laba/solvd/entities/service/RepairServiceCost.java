@@ -1,6 +1,6 @@
 package com.laba.solvd.entities.service;
 
-import com.laba.solvd.entities.exceptions.InvalidOrderException;
+import com.laba.solvd.entities.exceptions.InvalidDataException;
 import com.laba.solvd.entities.order.Order;
 import com.laba.solvd.entities.vehicle.Car;
 import org.slf4j.Logger;
@@ -30,7 +30,7 @@ public class RepairServiceCost extends ServiceCost{
 
         if (order == null) {
             logger.error("Invalid order: {}", order);
-            throw new InvalidOrderException("Order cannot be null.");
+            throw new InvalidDataException("Order cannot be null.");
         }
 
         this.partsCost = order.calculateTotalItemsCost();

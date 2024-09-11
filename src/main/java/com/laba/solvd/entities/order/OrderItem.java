@@ -6,11 +6,13 @@ public class OrderItem {
     private String itemId;
     private String name;
     private double price;
+    private int quantity;
 
-    public OrderItem(String itemId, String name, double price) {
+    public OrderItem(String itemId, String name, double price, int quantity) {
         this.itemId = itemId;
         this.name = name;
         this.price = price;
+        this.quantity = quantity;
     }
 
     public String getItemId() {
@@ -37,6 +39,14 @@ public class OrderItem {
         this.price = price;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
@@ -55,7 +65,8 @@ public class OrderItem {
         return "OrderItem: " +
                 "itemId: " + itemId +
                 ", name: '" + name +
-                ", price: " + price;
+                ", price: " + price +
+                ", quantity: " + quantity;
     }
 
 }
