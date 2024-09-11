@@ -1,6 +1,8 @@
 package com.laba.solvd.entities.people;
 
-public abstract class Person {
+import com.laba.solvd.entities.Named;
+
+public abstract class Person implements Named {
     private String name;
 
     public String getName() {

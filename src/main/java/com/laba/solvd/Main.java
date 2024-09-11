@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 import static com.laba.solvd.entities.Utils.calculateCarAge;
+import static com.laba.solvd.entities.Utils.findByName;
 
 public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
@@ -49,9 +50,10 @@ public class Main {
 
             carService.addDepartment(repairAndInspectionDepartment);
             carService.addDepartment(tireDepartment);
-            System.out.println(carService);
 
-           carService.removeDepartment("Repair and Inspection");
+            carService.removeDepartment("Repair and Inspection");
+            System.out.println(findByName(carService.getDepartments(), "Tire department"));
+            System.out.println(findByName(tireDepartment.getEmployees(), "Adam Mickiewicz"));
 
             carService.printPayroll();
 
