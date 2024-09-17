@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
+import java.util.Comparator;
+import java.util.Objects;
 
 public class Order {
     private static final Logger logger = LoggerFactory.getLogger(Order.class);
@@ -102,12 +104,9 @@ public class Order {
     }
 
     public double calculateTotalItemsCost() {
-        double total = 0.0;
-        for (OrderItem item : orderItems) {
-            total += item.getPrice();
-        }
-        logger.info("Total items cost calculated: {}", total);
-        return total;
+        return orderItems.stream()
+                .mapToDouble(OrderItem::getPrice)
+                .sum();
     }
 
     public static boolean isValidOrder(Order order) {
@@ -123,19 +122,14 @@ public class Order {
     }
 
     public static OrderItem findMostExpensiveItem(Order order) {
-        OrderItem mostExpensiveItem = null;
-        double highestPrice = 0.0;
-        for (OrderItem item : order.getOrderItems()) {
-            if (item != null && item.getPrice() > highestPrice) {
-                mostExpensiveItem = item;
-                highestPrice = item.getPrice();
-            }
-        }
-        if (mostExpensiveItem != null) {
-            logger.info("Most expensive item in Order ID: " + order.getOrderId() + " is " +
-                    mostExpensiveItem.getName() + " with price $" + mostExpensiveItem.getPrice());
-        }
-        return mostExpensiveItem;
+        return order.getOrderItems().stream()
+                .max(Comparator.comparingDouble(OrderItem::getPrice))
+                .map(item -> {
+                    logger.info("Most expensive item in Order ID: " + order.getOrderId() + " is " +
+                            item.getName() + " with price $" + item.getPrice());
+                    return item;
+                })
+                .orElse(null);
     }
 
     @Override

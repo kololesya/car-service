@@ -14,6 +14,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 public class Utils {
@@ -38,31 +39,20 @@ public class Utils {
         return age;
     }
 
-    public static <T extends Named> T findByName(Set<T> entities, String name) throws InvalidNameException {
-        try{
-            if (entities == null) {
-                logger.error("Error: The entity set is null.");
-                throw new NullEntitySetException("The entity set is null.");
-            }
-
-            if (name == null || name.trim().isEmpty()) {
-                logger.error("Error: The name cannot be null or empty.");
-                throw new InvalidNameException("The name cannot be null or empty.");
-            }
-
-            for (T entity : entities) {
-                if (entity != null && entity.getName().equals(name)) {
-                    logger.info("Entity found: {}", entity);
-                    return entity;
-                }
-            }
-
-            logger.info("Entity with name '{}' not found.", name);
-        } catch (NullEntitySetException | InvalidNameException e){
-            System.err.println("Error: " + e.getMessage());
+    public static <T extends Named> Optional<T> findByName(Set<T> entities, String name) throws InvalidNameException {
+        if (entities == null) {
+            logger.error("Error: The entity set is null.");
+            throw new NullEntitySetException("The entity set is null.");
         }
 
-        return null;
+        if (name == null || name.trim().isEmpty()) {
+            logger.error("Error: The name cannot be null or empty.");
+            throw new InvalidNameException("The name cannot be null or empty.");
+        }
+
+        return entities.stream()
+                .filter(e -> e != null && e.getName().equals(name))
+                .findFirst();
     }
 
     public static <T> Set<T> addElementToSet(Set<T> set, T element) {

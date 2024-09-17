@@ -26,10 +26,6 @@ public class CarService implements SalaryCalculable {
     }
 
     public CarService(Set<Department> departments) {
-        if (departments == null) {
-            logger.error("Error: Departments set cannot be null.");
-            throw new IllegalArgumentException("Departments set cannot be null.");
-        }
         this.departments = departments;
         logger.info("CarService initialized with {} departments.", departments.size());
     }
@@ -48,19 +44,16 @@ public class CarService implements SalaryCalculable {
     }
     @Override
     public double calculateTotalSalary() {
-        double totalSalary = 0;
-        for (Department department : departments) {
-            totalSalary += department.calculateTotalSalary();
-        }
-        return totalSalary;
+        return departments.stream()
+                .mapToDouble(Department::calculateTotalSalary)
+                .sum();
     }
 
     public void printPayroll() {
-        for (Department department : departments) {
-            for (Employee employee : department.getEmployees()) {
-                System.out.println(employee.getName() + " - " + employee.getSalary());
-            }
-        }
+        departments.stream()
+                .flatMap(department -> department.getEmployees().stream())
+                .forEach(employee -> System.out.println(employee.getName() + " - " + employee.getSalary()));
+
         System.out.println("Total Salary: $" + String.format("%.2f", calculateTotalSalary()));
     }
 

@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import javax.naming.InvalidNameException;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import static com.laba.solvd.entities.Utils.*;
@@ -73,12 +74,15 @@ public class Department implements SalaryCalculable, Named {
 
     @Override
     public double calculateTotalSalary() {
-        double totalSalary = 0;
-        for (Employee employee : employees) {
-            totalSalary += employee.calculateTotalSalary();
-        }
-        logger.info("Total salary for department '{}' calculated: ${}.", departmentName, totalSalary);
-        return totalSalary;
+        return employees.stream()
+                .mapToDouble(Employee::calculateTotalSalary)
+                .sum();
+    }
+
+    public double calculateTotalCost() {
+        return serviceCosts.stream()
+                .mapToDouble(ServiceCost::calculateCost)
+                .sum();
     }
 
     @Override
@@ -91,13 +95,12 @@ public class Department implements SalaryCalculable, Named {
             logger.warn("No employees to print in department '{}'.", departmentName);
         } else {
             logger.info("Printing employees of department '{}'.", departmentName);
-            for (Employee employee : employees) {
-                System.out.println(employee);
-            }
+            employees.stream()
+                    .forEach(System.out::println);
         }
     }
 
-    public static Department findDepartmentByName(Set<Department> departments, String name)
+    public static Optional<Department> findDepartmentByName(Set<Department> departments, String name)
             throws InvalidNameException, NullEntitySetException {
         return findByName(departments, name);
     }
@@ -110,18 +113,9 @@ public class Department implements SalaryCalculable, Named {
         addElementToSet(employees, employee);
     }
 
-    public double calculateTotalCost() {
-        double totalCost = 0;
-        for (ServiceCost serviceCost : serviceCosts) {
-            totalCost += serviceCost.calculateCost();
-        }
-        return totalCost;
-    }
-
-    public static void printInvoice(Set<ServiceCost> serviceCosts) {
-        for (ServiceCost serviceCost : serviceCosts) {
-            System.out.println(serviceCost);
-        }
+    public void printInvoice() {
+        serviceCosts.stream()
+                .forEach(System.out::println);
     }
 
     @Override

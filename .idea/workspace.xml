@@ -4,15 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="869f65c1-9337-44fc-9f97-3f60066704b7" name="Changes" comment="FileUtils, StringUtils">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/CustomerType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/vehicle/VehicleType.java" afterDir="false" />
+    <list default="true" id="869f65c1-9337-44fc-9f97-3f60066704b7" name="Changes" comment="3 enum classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/CarService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/Utils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/order/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/order/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/service/RepairServiceCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/service/RepairServiceCost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/vehicle/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/vehicle/Vehicle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Department.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,7 +133,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726572403915</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="3 enum classes">
+      <option name="closed" value="true" />
+      <created>1726574714457</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1726574714457</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -159,20 +165,31 @@
     <MESSAGE value="refactoring class PaymentProcessor" />
     <MESSAGE value="refactoring code" />
     <MESSAGE value="FileUtils, StringUtils" />
-    <option name="LAST_COMMIT_MESSAGE" value="FileUtils, StringUtils" />
+    <MESSAGE value="3 enum classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="3 enum classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/laba/solvd/Main.java</url>
-          <line>102</line>
+          <line>122</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Mechanic.java</url>
           <line>29</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/laba/solvd/Main.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/laba/solvd/Main.java</url>
+          <line>74</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

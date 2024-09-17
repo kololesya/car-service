@@ -2,6 +2,7 @@ package com.laba.solvd;
 
 import com.laba.solvd.entities.CarService;
 import com.laba.solvd.entities.exceptions.CarServiceException;
+import com.laba.solvd.entities.exceptions.NullEntitySetException;
 import com.laba.solvd.entities.order.Order;
 import com.laba.solvd.entities.order.OrderItem;
 import com.laba.solvd.entities.order.Warehouse;
@@ -15,11 +16,13 @@ import com.laba.solvd.entities.vehicle.VehicleType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.naming.InvalidNameException;
 import java.time.LocalDate;
 import java.util.*;
 
 import static com.laba.solvd.entities.Utils.calculateCarAge;
 import static com.laba.solvd.entities.Utils.findByName;
+import static com.laba.solvd.entities.people.Department.findDepartmentByName;
 
 public class Main {
     private static final Logger logger = LoggerFactory.getLogger(Main.class);
@@ -96,8 +99,24 @@ public class Main {
 
             System.out.println(repairAndInspectionDepartment.calculateTotalCost());
 
+            System.out.println(repairAndInspectionDepartment.calculateTotalSalary());
+            System.out.println(carService.calculateTotalSalary());
+
             PaymentProcessor paymentProcessor = new PaymentProcessor(serviceCost1);
             paymentProcessor.processPayment();
+
+            try {
+                Optional<Department> department = findDepartmentByName(departments, "IT");
+
+                if (department.isPresent()) {
+                    logger.info("Department found: " + department.get().getName());
+                } else {
+                    logger.warn("Department not found.");
+                }
+
+            } catch (InvalidNameException | NullEntitySetException e) {
+                logger.error("Error: " + e.getMessage());
+            }
 
         } catch (CarServiceException e) {
             logger.error("CarServiceException occurred: {}", e.getMessage());
