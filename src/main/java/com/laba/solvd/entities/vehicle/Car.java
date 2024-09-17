@@ -18,8 +18,9 @@ public class Car extends Vehicle implements Inspectable, Repairable, Paintable {
     private String serviceDate;
     private int manufacturingYear;
 
-    public Car(String producent, String model, String vinNumber, String serviceDate, int manufacturingYear) {
-        super(producent, model);
+    public Car(String producent, String model, String vinNumber, String serviceDate, int manufacturingYear,
+               VehicleType vehicleType) {
+        super(producent, model, vehicleType);
         this.vinNumber = vinNumber;
         this.serviceDate = serviceDate;
         this.manufacturingYear = manufacturingYear;

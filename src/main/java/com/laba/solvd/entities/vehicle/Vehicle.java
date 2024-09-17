@@ -5,10 +5,12 @@ import java.util.Objects;
 public abstract class Vehicle {
     private String producent;
     private String model;
+    private VehicleType vehicleType;
 
-    protected Vehicle(String producent, String model) {
+    protected Vehicle(String producent, String model, VehicleType vehicleType) {
         this.producent = producent;
         this.model = model;
+        this.vehicleType = vehicleType;
     }
 
     public String getProducent() {
@@ -25,6 +27,15 @@ public abstract class Vehicle {
 
     public void setModel(String model) {
         this.model = model;
+    }
+
+
+    public VehicleType getVehicleType() {
+        return vehicleType;
+    }
+
+    public void setVehicleType(VehicleType vehicleType) {
+        this.vehicleType = vehicleType;
     }
 
     @Override

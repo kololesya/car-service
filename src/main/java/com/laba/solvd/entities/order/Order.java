@@ -18,7 +18,6 @@ public class Order {
     private CustomLinkedList<OrderItem> orderItems;
     private static double totalExpenses;
     private Vehicle vehicle;
-    private int statusCode;
     private OrderStatus orderStatus = OrderStatus.PENDING;
 
     public Order(String orderId, LocalDate orderDate, Customer customer, Vehicle vehicle) {

@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="869f65c1-9337-44fc-9f97-3f60066704b7" name="Changes" comment="refactoring code">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/payments/OrderStatus.java" afterDir="false" />
+    <list default="true" id="869f65c1-9337-44fc-9f97-3f60066704b7" name="Changes" comment="FileUtils, StringUtils">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/CustomerType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/vehicle/VehicleType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/order/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/order/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/order/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/order/Warehouse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/payments/PaymentProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/payments/PaymentProcessor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Department.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/service/ServiceCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/service/ServiceCost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/service/RepairServiceCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/service/RepairServiceCost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/vehicle/Vehicle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/vehicle/Vehicle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +127,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726058182740</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="FileUtils, StringUtils">
+      <option name="closed" value="true" />
+      <created>1726572403915</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1726572403915</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -153,14 +158,15 @@
     <MESSAGE value="add Warehouse.java, decrease quantity exceptions" />
     <MESSAGE value="refactoring class PaymentProcessor" />
     <MESSAGE value="refactoring code" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring code" />
+    <MESSAGE value="FileUtils, StringUtils" />
+    <option name="LAST_COMMIT_MESSAGE" value="FileUtils, StringUtils" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/laba/solvd/Main.java</url>
-          <line>103</line>
+          <line>102</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

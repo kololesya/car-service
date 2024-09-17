@@ -11,6 +11,7 @@ import com.laba.solvd.entities.service.InspectionServiceCost;
 import com.laba.solvd.entities.service.RepairServiceCost;
 import com.laba.solvd.entities.service.ServiceCost;
 import com.laba.solvd.entities.vehicle.Car;
+import com.laba.solvd.entities.vehicle.VehicleType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,8 +33,8 @@ public class Main {
             Set<ServiceCost> serviceCosts = new HashSet<>();
             CarService carService = new CarService(departments);
 
-            Car car1 = new Car("Toyota", "Corolla", "VIN12345", "2024-08-21", 2015);
-            Car car2 = new Car("Honda", "Civic", "VIN54321", "2024-06-21", 2018);
+            Car car1 = new Car("Toyota", "Corolla", "VIN12345", "2024-08-21", 2015, VehicleType.CAR);
+            Car car2 = new Car("Honda", "Civic", "VIN54321", "2024-06-21", 2018, VehicleType.CAR);
 
             logger.info("Car {} age: {}", car2.getModel(), calculateCarAge(car2));
 
@@ -72,7 +73,7 @@ public class Main {
 
             carService.printPayroll();
 
-            Customer customer = new Customer("John Doe", 555123478);
+            Customer customer = new Customer("John Doe", 555123478, CustomerType.VIP);
             Order order1 = new Order("ORD001", LocalDate.now(), customer, car1);
 
             OrderItem item1 = new OrderItem("0001", "Oil Filter", 150, 2);
@@ -87,16 +88,15 @@ public class Main {
 
             InspectionServiceCost inspectionToyota = new InspectionServiceCost(car1, "Whole inspection", 60, order1.getOrderDate(), order1);
             inspectionToyota.performInspection(car1);
-            double x = inspectionToyota.calculateCost();
 
             ServiceCost serviceCost = new InspectionServiceCost(car1, "1", 1000, LocalDate.now(), order1);
-            ServiceCost serviceCost1 = new RepairServiceCost(car2, "2", 1200, LocalDate.now(), order1, 10, 50);
+            ServiceCost serviceCost1 = new RepairServiceCost(car2, "2", 1200, LocalDate.now(), order1);
             serviceCosts.add(serviceCost);
             serviceCosts.add(serviceCost1);
 
             System.out.println(repairAndInspectionDepartment.calculateTotalCost());
 
-            PaymentProcessor paymentProcessor = new PaymentProcessor(serviceCost);
+            PaymentProcessor paymentProcessor = new PaymentProcessor(serviceCost1);
             paymentProcessor.processPayment();
 
         } catch (CarServiceException e) {
