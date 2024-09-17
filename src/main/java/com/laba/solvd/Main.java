@@ -5,6 +5,7 @@ import com.laba.solvd.entities.exceptions.CarServiceException;
 import com.laba.solvd.entities.order.Order;
 import com.laba.solvd.entities.order.OrderItem;
 import com.laba.solvd.entities.order.Warehouse;
+import com.laba.solvd.entities.payments.PaymentProcessor;
 import com.laba.solvd.entities.people.*;
 import com.laba.solvd.entities.service.InspectionServiceCost;
 import com.laba.solvd.entities.service.RepairServiceCost;
@@ -37,9 +38,9 @@ public class Main {
             logger.info("Car {} age: {}", car2.getModel(), calculateCarAge(car2));
 
             Mechanic mechanic1 = new Mechanic("Adam Mickiewicz", 1600, 10, 20, "Engine Specialist", LocalDate.of(2020, 1, 15));
-            Mechanic mechanic2 = new Mechanic("Ivan Petrov", 1600, 15, 20, "Engine Specialist", LocalDate.of(2019, 2, 01));
-            Manager manager1 = new Manager("John Smith", "manager", 1000, 200, LocalDate.of(2022, 12, 05));
-            Manager manager2 = new Manager("Anna Szultz", "manager", 1100, 200, LocalDate.of(2021, 12, 05));
+            Mechanic mechanic2 = new Mechanic("Ivan Petrov", 1600, 15, 20, "Engine Specialist", LocalDate.of(2019, 2, 1));
+            Manager manager1 = new Manager("John Smith", "manager", 1000, 200, LocalDate.of(2022, 12, 5));
+            Manager manager2 = new Manager("Anna Szultz", "manager", 1100, 200, LocalDate.of(2021, 12, 5));
             Mechanic mechanic3 = new Mechanic(null, 0, 0, 0, null, null);
 
             Warehouse warehouse = new Warehouse();
@@ -47,6 +48,7 @@ public class Main {
             warehouse.addParts("Brake Pads", 10);
             warehouse.addParts("Oil Filter", 5);
             warehouse.addParts("Engine Belt", 3);
+            warehouse.addParts("Engine Belt1", 4);
 
             warehouse.printInventory();
 
@@ -93,6 +95,9 @@ public class Main {
             serviceCosts.add(serviceCost1);
 
             System.out.println(repairAndInspectionDepartment.calculateTotalCost());
+
+            PaymentProcessor paymentProcessor = new PaymentProcessor(serviceCost);
+            paymentProcessor.processPayment();
 
         } catch (CarServiceException e) {
             logger.error("CarServiceException occurred: {}", e.getMessage());

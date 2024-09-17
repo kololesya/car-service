@@ -4,8 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="869f65c1-9337-44fc-9f97-3f60066704b7" name="Changes" comment="add Warehouse.java, decrease quantity exceptions">
+    <list default="true" id="869f65c1-9337-44fc-9f97-3f60066704b7" name="Changes" comment="refactoring code">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/payments/OrderStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/logs/application.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/order/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/order/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/order/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/order/Warehouse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/payments/PaymentProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/payments/PaymentProcessor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/people/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/service/ServiceCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/service/ServiceCost.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +26,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -29,14 +40,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "D:/projects/car-service/src/main/resources"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/projects/car-service/src/main/resources&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\projects\car-service\src\main\resources" />
@@ -103,7 +114,23 @@
       <option name="project" value="LOCAL" />
       <updated>1726057584714</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="refactoring class PaymentProcessor">
+      <option name="closed" value="true" />
+      <created>1726057718933</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1726057718933</updated>
+    </task>
+    <task id="LOCAL-00008" summary="refactoring code">
+      <option name="closed" value="true" />
+      <created>1726058182740</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1726058182740</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,14 +151,16 @@
     <MESSAGE value="add Person extends Named" />
     <MESSAGE value="move logs to target;&#10;add Employee implements calculateTotalSalary" />
     <MESSAGE value="add Warehouse.java, decrease quantity exceptions" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Warehouse.java, decrease quantity exceptions" />
+    <MESSAGE value="refactoring class PaymentProcessor" />
+    <MESSAGE value="refactoring code" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/laba/solvd/Main.java</url>
-          <line>98</line>
+          <line>103</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

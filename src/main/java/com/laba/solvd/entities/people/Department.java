@@ -138,21 +138,15 @@ public class Department implements SalaryCalculable, Named {
             return true;
         }
 
-        if (!(obj instanceof Department)) {
+        if (!(obj instanceof Department other)) {
             return false;
         }
-
-        Department other = (Department) obj;
 
         if (!Objects.equals(this.departmentName, other.departmentName)) {
             return false;
         }
 
-        if (!Objects.equals(this.employees, other.employees)) {
-            return false;
-        }
-
-        return true;
+        return Objects.equals(this.employees, other.employees);
     }
 
     @Override

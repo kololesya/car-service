@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Manager extends Employee {
     private double bonus;
-    private LocalDate hireDate;
+    private final LocalDate hireDate;
 
     public Manager(String name, String specialty, double baseSalary, double bonus, LocalDate hireDate) {
         super(name, specialty, baseSalary);

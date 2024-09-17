@@ -2,6 +2,7 @@ package com.laba.solvd.entities.order;
 
 import com.laba.solvd.entities.CustomLinkedList;
 import com.laba.solvd.entities.exceptions.InvalidDataException;
+import com.laba.solvd.entities.payments.OrderStatus;
 import com.laba.solvd.entities.people.Customer;
 import com.laba.solvd.entities.vehicle.Vehicle;
 import org.slf4j.Logger;
@@ -17,6 +18,8 @@ public class Order {
     private CustomLinkedList<OrderItem> orderItems;
     private static double totalExpenses;
     private Vehicle vehicle;
+    private int statusCode;
+    private OrderStatus orderStatus = OrderStatus.PENDING;
 
     public Order(String orderId, LocalDate orderDate, Customer customer, Vehicle vehicle) {
         this.orderId = orderId;
@@ -24,7 +27,7 @@ public class Order {
         this.customer = customer;
         this.vehicle = vehicle;
         this.orderItems = new CustomLinkedList<>();
-        validateOrder();
+        logger.info("Order created with ID: {}. Initial status: {}", orderId, orderStatus.getDisplayName());
     }
 
     private void validateOrder() {
@@ -81,6 +84,14 @@ public class Order {
 
     public void setVehicle(Vehicle vehicle) {
         this.vehicle = vehicle;
+    }
+
+    public OrderStatus getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
     }
 
     public void addOrderItem(OrderItem item) {

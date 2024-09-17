@@ -1,6 +1,7 @@
 package com.laba.solvd.entities.service;
 
 import com.laba.solvd.entities.order.Order;
+import com.laba.solvd.entities.payments.OrderStatus;
 import com.laba.solvd.entities.vehicle.Car;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
