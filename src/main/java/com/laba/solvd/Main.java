@@ -17,6 +17,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.naming.InvalidNameException;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -89,10 +93,23 @@ public class Main {
 
             warehouse.processOrder(order1);
 
+            Customer customer2 = new Customer("Max True", 456789123, CustomerType.CORPORATE);
+            Order order2 = new Order("ORD002", LocalDate.now(), customer2, car2);
+
+            OrderItem item4 = new OrderItem("0001", "Oil Filter", 150, 2);
+            OrderItem item5 = new OrderItem("0002", "Brake Pads", 150, 1);
+            OrderItem item6 = new OrderItem("0003", "Engine Belt", 300, 1);
+
+            order1.addOrderItem(item4);
+            order1.addOrderItem(item5);
+            order1.addOrderItem(item6);
+
+            warehouse.processOrder(order2);
+
             InspectionServiceCost inspectionToyota = new InspectionServiceCost(car1, "Whole inspection", 60, order1.getOrderDate(), order1);
             inspectionToyota.performInspection(car1);
 
-            ServiceCost serviceCost = new InspectionServiceCost(car1, "1", 1000, LocalDate.now(), order1);
+            ServiceCost serviceCost = new InspectionServiceCost(car1, "1", 1000, LocalDate.now(), order2);
             ServiceCost serviceCost1 = new RepairServiceCost(car2, "2", 1200, LocalDate.now(), order1);
             serviceCosts.add(serviceCost);
             serviceCosts.add(serviceCost1);
@@ -103,6 +120,10 @@ public class Main {
             System.out.println(carService.calculateTotalSalary());
 
             PaymentProcessor paymentProcessor = new PaymentProcessor(serviceCost1);
+            paymentProcessor.processPayment();
+
+
+            PaymentProcessor paymentProcessor1 = new PaymentProcessor(serviceCost);
             paymentProcessor.processPayment();
 
             try {
@@ -117,6 +138,60 @@ public class Main {
             } catch (InvalidNameException | NullEntitySetException e) {
                 logger.error("Error: " + e.getMessage());
             }
+
+
+            try {
+                Class<?> clazz = Warehouse.class;
+
+                System.out.println("Fields:");
+                Field[] fields = clazz.getDeclaredFields();
+                for (Field field : fields) {
+                    System.out.println("Field: " + field.getName());
+                    System.out.println("Type: " + field.getType().getName());
+                    System.out.println("Modifiers: " + Modifier.toString(field.getModifiers()));
+                    System.out.println();
+                }
+
+                System.out.println("Constructors:");
+                Constructor<?>[] constructors = clazz.getDeclaredConstructors();
+                for (Constructor<?> constructor : constructors) {
+                    System.out.println("Constructor: " + constructor.getName());
+                    System.out.println("Parameter types: ");
+                    Class<?>[] parameterTypes = constructor.getParameterTypes();
+                    for (Class<?> paramType : parameterTypes) {
+                        System.out.println(" - " + paramType.getName());
+                    }
+                    System.out.println("Modifiers: " + Modifier.toString(constructor.getModifiers()));
+                    System.out.println();
+                }
+
+                Constructor<?> constructor = clazz.getConstructor();
+                Object warehouseInstance = constructor.newInstance();
+
+                Method addPartsMethod = clazz.getMethod("addParts", String.class, int.class);
+                addPartsMethod.invoke(warehouseInstance, "Brake Pads", 50);
+
+                Method printInventoryMethod = clazz.getMethod("printInventory");
+                printInventoryMethod.invoke(warehouseInstance);
+
+                System.out.println("Methods:");
+                Method[] methods = clazz.getDeclaredMethods();
+                for (Method method : methods) {
+                    System.out.println("Method: " + method.getName());
+                    System.out.println("Return type: " + method.getReturnType().getName());
+                    System.out.println("Parameter types: ");
+                    Class<?>[] parameterTypes = method.getParameterTypes();
+                    for (Class<?> paramType : parameterTypes) {
+                        System.out.println(" - " + paramType.getName());
+                    }
+                    System.out.println("Modifiers: " + Modifier.toString(method.getModifiers()));
+                    System.out.println();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
 
         } catch (CarServiceException e) {
             logger.error("CarServiceException occurred: {}", e.getMessage());

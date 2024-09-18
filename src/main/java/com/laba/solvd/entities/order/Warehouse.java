@@ -2,6 +2,7 @@ package com.laba.solvd.entities.order;
 
 import com.laba.solvd.entities.exceptions.InvalidDataException;
 import com.laba.solvd.entities.exceptions.OrderProcessingException;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
@@ -30,86 +31,8 @@ public class Warehouse {
         loadInventory();
     }
 
-    public void addParts(String partName, int quantity) {
-        try {
-            if (quantity <= 0) {
-                throw new InvalidDataException("Quantity must be greater than zero.");
-            }
-
-            partsInventory.put(partName, partsInventory.getOrDefault(partName, 0) + quantity);
-            String logEntry = generateInventoryLogEntry(partName, quantity);
-
-            if (inventoryLogEntries.add(logEntry)) {
-                writeInventoryToFile();
-            }
-
-            logger.info("Added {} units of {} to the warehouse.", quantity, partName);
-        } catch (InvalidDataException e) {
-            logger.error("Error adding parts: {}", e.getMessage());
-        } catch (Exception e) {
-            logger.error("Unexpected error while adding parts.", e);
-        }
-    }
-
-    public boolean checkPartAvailability(String partName, int requiredQuantity) {
-        int availableQuantity = partsInventory.get(partName);
-        return availableQuantity >= requiredQuantity;
-    }
-
-    public void issueParts(String partName, int quantity) {
-        try {
-            if (!checkPartAvailability(partName, quantity)) {
-                throw new OrderProcessingException("Not enough " + partName + " in the warehouse.");
-            }
-
-            partsInventory.put(partName, partsInventory.get(partName) - quantity);
-            String logEntry = generateInventoryLogEntry(partName, -quantity);
-
-            if (inventoryLogEntries.add(logEntry)) {
-                writeInventoryToFile();
-            }
-
-            logger.info("Processed {} units of '{}' from order. Remaining inventory: {}", quantity, partName, partsInventory.get(partName));
-        } catch (OrderProcessingException e) {
-            logger.error("Error issuing parts: {}", e.getMessage());
-        } catch (Exception e) {
-            logger.error("Unexpected error while issuing parts.", e);
-        }
-    }
-
-    public void printInventory() {
-        try {
-            logger.info("Current warehouse inventory:");
-            for (Map.Entry<String, Integer> entry : partsInventory.entrySet()) {
-                System.out.println("Part: " + entry.getKey() + ", Quantity: " + entry.getValue());
-            }
-        } catch (Exception e) {
-            logger.error("Error printing inventory.", e);
-        }
-    }
-
-    public void processOrder(Order order) {
-        try {
-            logger.info("Processing order ID: {} for customer: {}", order.getOrderId(), order.getCustomer().getName());
-
-            for (OrderItem item : order.getOrderItems()) {
-                String partName = item.getName();
-                int requiredQuantity = item.getQuantity();
-
-                if (checkPartAvailability(partName, requiredQuantity)) {
-                    issueParts(partName, requiredQuantity);
-                    logger.info("Processed {} units of '{}' from order. Remaining inventory: {}", requiredQuantity,
-                            partName, partsInventory.get(partName));
-                } else {
-                    logger.warn("Not enough '{}' in the warehouse to fulfill the order. Required: {}, Available: {}",
-                            partName, requiredQuantity, partsInventory.getOrDefault(partName, 0));
-                }
-            }
-
-            logger.info("Order ID: {} processed successfully.", order.getOrderId());
-        } catch (Exception e) {
-            logger.error("Error processing order: {}", e.getMessage());
-        }
+    private String generateInventoryLogEntry(String partName, int quantity) {
+        return String.format("%s | %d", partName, quantity);
     }
 
     private void loadInventory() {
@@ -154,8 +77,88 @@ public class Warehouse {
         }
     }
 
-    private String generateInventoryLogEntry(String partName, int quantity) {
-        return String.format("%s | %d", partName, quantity);
+    public void addParts(String partName, int quantity) {
+        try {
+            if (quantity <= 0) {
+                throw new InvalidDataException("Quantity must be greater than zero.");
+            }
+
+            partsInventory.put(partName, partsInventory.getOrDefault(partName, 0) + quantity);
+            String logEntry = generateInventoryLogEntry(partName, quantity);
+
+            if (inventoryLogEntries.add(logEntry)) {
+                writeInventoryToFile();
+            }
+
+            logger.info(StringUtils.join("Added ", quantity, " units of ", partName));
+        } catch (InvalidDataException e) {
+            logger.error("Error adding parts: {}", e.getMessage());
+        } catch (Exception e) {
+            logger.error("Unexpected error while adding parts.", e);
+        }
+    }
+
+    public boolean checkPartAvailability(String partName, int requiredQuantity) {
+        return partsInventory.getOrDefault(partName, 0) >= requiredQuantity;
+    }
+
+    public void issueParts(String partName, int quantity) {
+        try {
+            if (!checkPartAvailability(partName, quantity)) {
+                throw new OrderProcessingException("Not enough " + partName + " in the warehouse.");
+            }
+
+            partsInventory.put(partName, partsInventory.get(partName) - quantity);
+            String logEntry = generateInventoryLogEntry(partName, -quantity);
+
+            if (inventoryLogEntries.add(logEntry)) {
+                writeInventoryToFile();
+            }
+
+            String logMessage = StringUtils.join("Processed ", String.valueOf(quantity),
+                    " units of '", partName,
+                    "' from order. Remaining inventory: ", String.valueOf(partsInventory.get(partName)));
+            logger.info(logMessage);
+        } catch (OrderProcessingException e) {
+            logger.error("Error issuing parts: {}", e.getMessage());
+        } catch (Exception e) {
+            logger.error("Unexpected error while issuing parts.", e);
+        }
+    }
+
+    public void printInventory() {
+        try {
+            logger.info("Current warehouse inventory:");
+            for (Map.Entry<String, Integer> entry : partsInventory.entrySet()) {
+                System.out.println("Part: " + entry.getKey() + ", Quantity: " + entry.getValue());
+            }
+        } catch (Exception e) {
+            logger.error("Error printing inventory.", e);
+        }
+    }
+
+    public void processOrder(Order order) {
+        try {
+            logger.info("Processing order ID: {} for customer: {}", order.getOrderId(), order.getCustomer().getName());
+
+            order.getOrderItems().forEach(item -> {
+                        String partName = item.getName();
+                        int requiredQuantity = item.getQuantity();
+
+                        if (checkPartAvailability(partName, requiredQuantity)) {
+                            issueParts(partName, requiredQuantity);
+                            logger.info("Processed {} units of '{}' from order. Remaining inventory: {}", requiredQuantity,
+                                    partName, partsInventory.get(partName));
+                        } else {
+                            logger.warn("Not enough '{}' in the warehouse to fulfill the order. Required: {}, Available: {}",
+                                    partName, requiredQuantity, partsInventory.getOrDefault(partName, 0));
+                        }
+            });
+
+            logger.info("Order ID: {} processed successfully.", order.getOrderId());
+        } catch (Exception e) {
+            logger.error("Error processing order: {}", e.getMessage());
+        }
     }
 
     private void writeInventoryToFile() {
@@ -170,6 +173,13 @@ public class Warehouse {
             headerRow.createCell(0).setCellValue("Part Name");
             headerRow.createCell(1).setCellValue("Quantity");
 
+            //Variable used in lambda expression should be final or effectively final
+//            partsInventory.entrySet().stream().forEach(entry -> {
+//                Row row = sheet.createRow(rowIndex++);
+//                row.createCell(0).setCellValue(entry.getKey());
+//                row.createCell(1).setCellValue(entry.getValue());
+//            });
+//
             for (Map.Entry<String, Integer> entry : partsInventory.entrySet()) {
                 Row row = sheet.createRow(rowIndex++);
                 row.createCell(0).setCellValue(entry.getKey());

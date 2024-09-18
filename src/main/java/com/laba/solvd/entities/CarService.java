@@ -3,10 +3,9 @@ package com.laba.solvd.entities;
 import com.laba.solvd.entities.exceptions.DepartmentException;
 import com.laba.solvd.entities.exceptions.InvalidDataException;
 import com.laba.solvd.entities.people.Department;
-import com.laba.solvd.entities.people.Employee;
 import com.laba.solvd.entities.people.SalaryCalculable;
-import com.laba.solvd.entities.service.ServiceCost;
 import com.laba.solvd.entities.vehicle.Car;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -58,20 +57,14 @@ public class CarService implements SalaryCalculable {
     }
 
     public void carOnTheService() {
-        int totalCarsServiced = 0;
-        Set<String> uniqueCarIds = new HashSet<>();
+        Set<String> uniqueCarIds = departments.stream()
+                .flatMap(department -> department.getServiceCosts().stream())
+                .map(serviceCost -> (Car) serviceCost.getOrder().getVehicle())
+                .map(Car::getVinNumber)
+                .collect(HashSet::new, Set::add, Set::addAll);
 
-        for (Department department : departments) {
-            for (ServiceCost serviceCost : department.getServiceCosts()) {
-                if (serviceCost.getOrder() != null && serviceCost.getOrder().getVehicle() instanceof Car) {
-                    Car car = (Car) serviceCost.getOrder().getVehicle();
-                    if (car != null && uniqueCarIds.add(car.getVinNumber())) {
-                        totalCarsServiced++;
-                    }
-                }
-            }
-        }
-        System.out.println("Total number of cars serviced: " + totalCarsServiced);
+        int totalCarsServiced = uniqueCarIds.size();
+        logger.info(StringUtils.join("Total number of cars serviced: ", totalCarsServiced));
     }
 
     public void removeDepartment(String departmentName) {
@@ -83,7 +76,7 @@ public class CarService implements SalaryCalculable {
         Department departmentToRemove = null;
         try {
             for (Department department : departments) {
-                if (department.getName().equals(departmentName)) {
+                if (StringUtils.equals(department.getName(), departmentName)) {
                     departmentToRemove = department;
                     break;
                 }
@@ -103,18 +96,19 @@ public class CarService implements SalaryCalculable {
     }
 
     public void addDepartment(Department department) {
-        if (department == null) {
-            logger.error("Error: Department cannot be null.");
-            throw new InvalidDataException("Department cannot be null.");
+        if (StringUtils.isBlank(department.getName())) {
+            logger.error("Error: Department name is blank or null.");
+            throw new InvalidDataException("Department name cannot be blank or null.");
         }
-        departments = addElementToSet(departments, department);
+        addElementToSet(departments, department);
         logger.info("Department with name '{}' added successfully.", department.getName());
     }
 
     @Override
     public String toString() {
-        return "CarService{" +
-                "departments=" + departments +
-                '}';
+        String departmentNames = StringUtils.join(departments.stream()
+                .map(Department::getName)
+                .toArray(), ", ");
+        return "CarService has departments: " + departmentNames;
     }
 }
