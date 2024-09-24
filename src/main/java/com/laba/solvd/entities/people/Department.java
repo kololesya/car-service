@@ -95,7 +95,7 @@ public class Department implements SalaryCalculable, Named {
             logger.warn("No employees to print in department '{}'.", departmentName);
         } else {
             logger.info("Printing employees of department '{}'.", departmentName);
-            employees.stream()
+            employees
                     .forEach(System.out::println);
         }
     }
@@ -106,18 +106,21 @@ public class Department implements SalaryCalculable, Named {
     }
 
     public void removeEmployee(Employee employee) {
-        setEmployees(removeElementFromSet(employees, employee));
+        setEmployees(removeElementFromSet(employees, employee, Department::isValidEmployee));
     }
 
     public void addEmployee(Employee employee){
-        addElementToSet(employees, employee);
+        addElementToSet(employees, employee, Department::isValidEmployee);
     }
 
     public void printInvoice() {
-        serviceCosts.stream()
+        serviceCosts
                 .forEach(System.out::println);
     }
 
+    private static boolean isValidEmployee(Employee employee) {
+        return employee != null && !employee.getName().isEmpty();
+    }
     @Override
     public String toString() {
         return "Department: " +

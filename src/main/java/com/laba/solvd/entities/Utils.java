@@ -3,9 +3,8 @@ package com.laba.solvd.entities;
 import com.laba.solvd.entities.exceptions.CarServiceException;
 import com.laba.solvd.entities.exceptions.InvalidDataException;
 import com.laba.solvd.entities.exceptions.NullEntitySetException;
-import com.laba.solvd.entities.people.Department;
-import com.laba.solvd.entities.people.Employee;
 import com.laba.solvd.entities.vehicle.Car;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -16,6 +15,7 @@ import java.time.format.DateTimeParseException;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
+import java.util.function.Predicate;
 
 public class Utils {
 
@@ -55,24 +55,14 @@ public class Utils {
                 .findFirst();
     }
 
-    public static <T> Set<T> addElementToSet(Set<T> set, T element) {
+    public static <T> Set<T> addElementToSet(Set<T> set, T element, Predicate<T> validator) {
         try {
             if (element == null) {
                 throw new InvalidDataException("The element to add cannot be null.");
             }
 
-            if (element instanceof Employee) {
-                Employee employee = (Employee) element;
-                if (!isValidEmployee(employee)) {
-                    throw new CarServiceException("Cannot add an employee with invalid data: " + employee);
-                }
-            }
-
-            if (element instanceof Department) {
-                Department department = (Department) element;
-                if (!isValidDepartment(department)) {
-                    throw new CarServiceException("Cannot add a department with invalid data: " + department);
-                }
+            if (!validator.test(element)) {
+                throw new CarServiceException("Cannot add element with invalid data: " + element);
             }
 
             set.add(element);
@@ -84,7 +74,8 @@ public class Utils {
         }
         return set;
     }
-    public static <T> Set<T> removeElementFromSet(Set<T> set, T element) {
+
+    public static <T> Set<T> removeElementFromSet(Set<T> set, T element, Predicate<T> validator) {
         Set<T> newSet = new HashSet<>();
 
         try {
@@ -96,18 +87,8 @@ public class Utils {
                 throw new InvalidDataException("The element to remove cannot be null.");
             }
 
-            if (element instanceof Employee) {
-                Employee employee = (Employee) element;
-                if (!isValidEmployee(employee)) {
-                    throw new CarServiceException("Cannot remove an employee with invalid data: " + employee);
-                }
-            }
-
-            if (element instanceof Department) {
-                Department department = (Department) element;
-                if (!isValidDepartment(department)) {
-                    throw new CarServiceException("Cannot remove a department with invalid data: " + department);
-                }
+            if (!validator.test(element)) {
+                throw new CarServiceException("Cannot remove element with invalid data: " + element);
             }
 
             newSet.addAll(set);
@@ -124,13 +105,5 @@ public class Utils {
         }
 
         return newSet;
-    }
-
-    private static boolean isValidEmployee(Employee employee) {
-        return employee != null && !employee.getName().isEmpty();
-    }
-
-    private static boolean isValidDepartment(Department department) {
-        return department != null && department.getName() != null && !department.getName().isEmpty();
     }
 }
