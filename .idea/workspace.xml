@@ -7,8 +7,7 @@
     <list default="true" id="869f65c1-9337-44fc-9f97-3f60066704b7" name="Changes" comment="stream">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/CarService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/CarService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/order/Warehouse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/laba/solvd/entities/order/Warehouse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
