@@ -12,8 +12,10 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class PaymentProcessor implements PaymentProcessing{
     private static final Logger logger = LoggerFactory.getLogger(Department.class);
@@ -118,9 +120,11 @@ public class PaymentProcessor implements PaymentProcessing{
         File file = new File(PAYMENT_LOG_PATH);
         if (file.exists()) {
             try {
-                for (String line : FileUtils.readLines(file, StandardCharsets.UTF_8)) {
-                    uniqueLogs.add(line.trim());
-                }
+                uniqueLogs.addAll(
+                        Files.lines(file.toPath())
+                                .map(String::trim)
+                                .collect(Collectors.toSet())
+                );
                 logger.info("Existing logs loaded from file.");
             } catch (IOException e) {
                 logger.error("Failed to read existing logs from file.", e);
