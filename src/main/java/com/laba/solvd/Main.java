@@ -74,7 +74,7 @@ public class Main {
             carService.addDepartment(repairAndInspectionDepartment);
             carService.addDepartment(tireDepartment);
 
-            //carService.removeDepartment("Repair and Inspection");
+            carService.removeDepartment(repairAndInspectionDepartment);
             System.out.println(findByName(carService.getDepartments(), "Tire department"));
             System.out.println(findByName(tireDepartment.getEmployees(), "Adam Mickiewicz"));
 

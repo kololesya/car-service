@@ -1,7 +1,5 @@
 package com.laba.solvd.entities;
 
-import com.laba.solvd.entities.exceptions.DepartmentException;
-import com.laba.solvd.entities.exceptions.InvalidDataException;
 import com.laba.solvd.entities.people.Department;
 import com.laba.solvd.entities.people.SalaryCalculable;
 import com.laba.solvd.entities.vehicle.Car;
@@ -67,41 +65,18 @@ public class CarService implements SalaryCalculable {
         logger.info(StringUtils.join("Total number of cars serviced: ", totalCarsServiced));
     }
 
-    public void removeDepartment(String departmentName) {
-        if (departments == null || departments.isEmpty()) {
-            logger.error("The departments set is null or empty.");
-            throw new InvalidDataException("The departments set is null or empty.");
-        }
-
-        Department departmentToRemove = null;
-        try {
-            for (Department department : departments) {
-                if (StringUtils.equals(department.getName(), departmentName)) {
-                    departmentToRemove = department;
-                    break;
-                }
-            }
-
-            if (departmentToRemove != null) {
-                departments = removeElementFromSet(departments, departmentToRemove);
-                logger.info("Department with name '{}' removed successfully.", departmentName);
-            } else {
-                logger.warn("Department with name '{}' not found for removal.", departmentName);
-                throw new DepartmentException("Department with name '" + departmentName + "' not found.");
-            }
-        } catch (Exception e) {
-            logger.error("An error occurred while attempting to remove department '{}': {}", departmentName, e.getMessage());
-            throw e;
-        }
+    public void removeDepartment(Department department) {
+        setDepartments(removeElementFromSet(departments, department, CarService::isValidDepartment));
     }
 
     public void addDepartment(Department department) {
-        if (StringUtils.isBlank(department.getName())) {
-            logger.error("Error: Department name is blank or null.");
-            throw new InvalidDataException("Department name cannot be blank or null.");
-        }
-        addElementToSet(departments, department);
+
+        addElementToSet(departments, department, CarService::isValidDepartment);
         logger.info("Department with name '{}' added successfully.", department.getName());
+    }
+
+    private static boolean isValidDepartment(Department department) {
+        return department != null && department.getName() != null && !department.getName().isEmpty();
     }
 
     @Override
