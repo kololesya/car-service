@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.HashSet;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class Warehouse {
     private static final Logger logger = LoggerFactory.getLogger(Warehouse.class);
@@ -129,9 +130,12 @@ public class Warehouse {
     public void printInventory() {
         try {
             logger.info("Current warehouse inventory:");
-            for (Map.Entry<String, Integer> entry : partsInventory.entrySet()) {
-                System.out.println("Part: " + entry.getKey() + ", Quantity: " + entry.getValue());
-            }
+
+            partsInventory.entrySet()
+                    .stream()
+                    .forEach(entry ->
+                            System.out.println("Part: " + entry.getKey() + ", Quantity: " + entry.getValue())
+                    );
         } catch (Exception e) {
             logger.error("Error printing inventory.", e);
         }
@@ -167,24 +171,26 @@ public class Warehouse {
              Workbook workbook = new XSSFWorkbook()) {
 
             Sheet sheet = workbook.createSheet("Inventory");
-            int rowIndex = 0;
+            AtomicInteger rowIndex = new AtomicInteger();
 
-            Row headerRow = sheet.createRow(rowIndex++);
+            Row headerRow = sheet.createRow(rowIndex.getAndIncrement());
             headerRow.createCell(0).setCellValue("Part Name");
             headerRow.createCell(1).setCellValue("Quantity");
 
-            //Variable used in lambda expression should be final or effectively final
-//            partsInventory.entrySet().stream().forEach(entry -> {
-//                Row row = sheet.createRow(rowIndex++);
+            partsInventory.entrySet()
+                    .stream()
+                    .forEach(entry -> {
+                        Row row = sheet.createRow(rowIndex.getAndIncrement());
+                        row.createCell(0).setCellValue(entry.getKey());
+                        row.createCell(1).setCellValue(entry.getValue());
+                    });
+
+//
+//            for (Map.Entry<String, Integer> entry : partsInventory.entrySet()) {
+//                Row row = sheet.createRow(rowIndex.getAndIncrement());
 //                row.createCell(0).setCellValue(entry.getKey());
 //                row.createCell(1).setCellValue(entry.getValue());
-//            });
-//
-            for (Map.Entry<String, Integer> entry : partsInventory.entrySet()) {
-                Row row = sheet.createRow(rowIndex++);
-                row.createCell(0).setCellValue(entry.getKey());
-                row.createCell(1).setCellValue(entry.getValue());
-            }
+//            }
 
             workbook.write(fos);
         } catch (IOException e) {
