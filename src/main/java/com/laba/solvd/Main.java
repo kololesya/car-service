@@ -1,6 +1,10 @@
 package com.laba.solvd;
 
 import com.laba.solvd.entities.CarService;
+import com.laba.solvd.entities.connection.ConnectionPool;
+import com.laba.solvd.entities.connection.ConnectionRunnable;
+import com.laba.solvd.entities.connection.ConnectionTask;
+import com.laba.solvd.entities.connection.ConnectionThread;
 import com.laba.solvd.entities.exceptions.CarServiceException;
 import com.laba.solvd.entities.exceptions.NullEntitySetException;
 import com.laba.solvd.entities.order.Order;
@@ -23,6 +27,7 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.time.LocalDate;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 import static com.laba.solvd.entities.Utils.calculateCarAge;
 import static com.laba.solvd.entities.Utils.findByName;
@@ -139,6 +144,35 @@ public class Main {
                 logger.error("Error: " + e.getMessage());
             }
 
+            ConnectionPool pool = ConnectionPool.getInstance();
+
+            Thread runnableThread = new Thread(new ConnectionRunnable(pool));
+            runnableThread.start();
+
+            ConnectionThread connectionThread = new ConnectionThread(pool);
+            connectionThread.start();
+
+            try {
+                runnableThread.join();
+                connectionThread.join();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                logger.error("Main thread interrupted");
+            }
+
+            logger.info("Both threads have finished executing.");
+
+            ConnectionTask task = new ConnectionTask(pool);
+
+
+            CompletableFuture[] futures = new CompletableFuture[7];
+            for (int i = 0; i < 7; i++) {
+                futures[i] = task.getConnectionAsync();
+            }
+
+
+            CompletableFuture.allOf(futures).join();
+            logger.info("All asynchronous tasks completed.");
 
             try {
                 Class<?> clazz = Warehouse.class;
